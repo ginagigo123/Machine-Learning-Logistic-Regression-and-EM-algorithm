@@ -74,7 +74,6 @@ def Newton_Method(X, w, y, lr=0.01):
         if time == 0:
             fdelta = delta
         time += 1
-        print(delta)
         
     print("First delta\n", fdelta)
     print("Final delta\n", delta)
