@@ -122,7 +122,7 @@ def print_confusion(W, y_train, mapping):
             if y_train[j] == i and predict[j] == i:
                 TP += 1
             elif y_train[j] != i and predict[j] != i:
-                TN += 1
+                TN += 1     
             elif y_train[j] == i and predict[j] != i:
                 FN += 1
             elif y_train[j] != i and predict[j] == i:
@@ -151,7 +151,7 @@ print_num(X_train[0], False)
 
 # initial value
 # lambda -> probability of choosing the label 0..9
-# Distribution -> for label 0..9, 28 * 28 pixel probability of each pixel 出現1的機率
+# P -> for label 0..9, 28 * 28 pixel probability of each pixel 出現1的機率
 lambda_MLE = np.ones(shape=(10, 1)) / 10
 P = np.random.rand(10, 28, 28) / 2 + 0.25
 
@@ -159,7 +159,7 @@ delta_lambda = 100
 delta_Dist = 100
 
 num_loop = 0
-while delta_lambda > 0.1 or delta_Dist > 50:
+while delta_lambda > 0.1 or delta_Dist > 20:
     
     # E step
     W = update_posterior(X, P, lambda_MLE)
